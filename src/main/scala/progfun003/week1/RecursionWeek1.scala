@@ -9,18 +9,19 @@ object RecursionWeek1 {
   }
 
   def isBalanced(chars: String): Boolean = {
-    def incVal(c: Char, balance: Int) = {
-      if (c == '(' && balance >= 0) 1
-      else if (c == ')') -1
-      else 0
-    }
-
+    
     @tailrec
     def balanceRec(charsRec: List[Char], balance: Int): Int = {
       charsRec.headOption match {
         case Some(c) => balanceRec(charsRec.tail, balance + incVal(c, balance))
         case None => balance
       }
+    }
+
+    def incVal(c: Char, balance: Int) = {
+      if (c == '(' && balance >= 0) 1
+      else if (c == ')') -1
+      else 0
     }
 
     balanceRec(chars.toList, 0) == 0
