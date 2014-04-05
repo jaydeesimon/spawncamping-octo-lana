@@ -1,8 +1,6 @@
-Assignments for Functional Programming Principles in Scala
-==========================================================
+# Assignments for Functional Programming Principles in Scala
 
-Important Links
-===============
+# Important Links
 
-Video Lectures - https://class.coursera.org/progfun-003/lecture
-Assignments - https://class.coursera.org/progfun-003/assignment
+* [Video Lectures](https://class.coursera.org/progfun-003/lecture)
+* [Assignments](https://class.coursera.org/progfun-003/assignment)
