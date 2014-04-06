@@ -9,7 +9,7 @@ object RecursionWeek1 {
   }
 
   def isBalanced(chars: String): Boolean = {
-    
+
     @tailrec
     def balanceRec(charsRec: List[Char], balance: Int): Int = {
       charsRec.headOption match {
@@ -27,6 +27,16 @@ object RecursionWeek1 {
     balanceRec(chars.toList, 0) == 0
   }
 
+  def countChange(money: Int, coins: List[Int]): Int = {
+    coins.map { coin =>
+      val quotient = money / coin
+      val remainder = money % coin
+      if (quotient == 0 || remainder != 0) 0
+      else if (quotient == 1 || quotient == money) 1
+      else countChange(quotient, coins)
+    }.sum
+  }
+
   def main(args: Array[String]) = {
     println(pascal(-1, 0))
     println(pascal(0, 2))
@@ -40,7 +50,12 @@ object RecursionWeek1 {
     println(isBalanced(":-)"))
     println(isBalanced("())("))
     println(isBalanced(")()()("))
+
+    println(countChange(10, List(5, 2)))
+    println(countChange(4, List(1, 2)))
+    println(countChange(4, List()))
+    println(countChange(6, List(1, 2, 3)))
+    println(countChange(0, List(1, 2, 3)))
+    println(countChange(100, List(1, 5, 10, 20, 50)))
   }
-
-
 }
